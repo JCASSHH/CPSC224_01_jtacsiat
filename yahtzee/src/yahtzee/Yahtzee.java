@@ -1,4 +1,3 @@
-
 /**********************************
  Homework #1
  Due Date: 1/31/19
@@ -8,13 +7,11 @@
 
 package yahtzee;
 
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 
 import static java.lang.Math.random;
 import java.util.Scanner;
@@ -35,10 +32,6 @@ public class Yahtzee {
         int turn = 1;
         while (turn < 4 && keep != "yyyyy"){
             //roll dice not kept
-        String keep = "nnnnn"; //setup to roll all dice in the first roll
-        int turn = 1;
-        while (turn < 4 && keep != "yyyyy"){
-                //roll dice not kept
             for (int dieNumber = 0; dieNumber < diceInPlay; dieNumber++)
             {
                 if (keep.charAt(rollDie()) != 'y')
@@ -55,15 +48,6 @@ public class Yahtzee {
                 System.out.println("enter dice to keep (y or n) ");
                 //takes the user input either y or n to represent what dice numbers to keep
                 //usage (yyyyy)(nnnnn)(yynnn)
-            System.out.println("Your roll was: ");
-            System.out.println("Your roll was: ");
-            
-            for (int dieNumber = 0; dieNumber < diceInPlay; dieNumber++){
-                System.out.println(hand[dieNumber]);
-            }
-            //if not the last roll of the hand prompt the user for dice to keep
-            if (turn < 3){
-                System.out.println("enter dice to keep (y or n) ");
                 keep = scnr.next();
             }
             turn++;
@@ -229,4 +213,3 @@ public class Yahtzee {
 	}
 }
     
-
