@@ -213,3 +213,4 @@ public class Hangman {
 		//welcome greeting
 	}
 }
+
