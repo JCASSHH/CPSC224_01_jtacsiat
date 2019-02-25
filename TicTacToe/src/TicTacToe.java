@@ -1,3 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tictactoenb;
+
 import java.awt.*;
 import javax.swing.*; // Needed for Swing classes
 import java.awt.event.*; // Needed for event listener interface
@@ -8,7 +15,12 @@ public class TicTacToe extends JFrame {
     private JLabel messageLabel;
     private JPanel panel;
     private JFrame frame;
-    private GridLayout layout;
+    private JPanel namePanel;
+    private JPanel bottomButtonPanel;
+    JLabel nameLabel;
+    private JTextField nameTextField;
+    private JTextField nameTextField2;
+    private JFrame grid;
     private JLabel players; // To display a message
     private JButton zero;
     private JButton one;
@@ -19,13 +31,19 @@ public class TicTacToe extends JFrame {
     private JButton six;
     private JButton seven;
     private JButton eight;
+    private JButton newGame;
+    private JButton reset;
+    private JButton exit;
     public static String board[] = new String[9];
     public boolean player1 = true;
     public boolean chosen;
+    int player1Wins = 0;
+    int player2Wins = 0;
     public static boolean gameOver = false;
     private final int WINDOW_WIDTH = 500;
     private final int WINDOW_HEIGHT = 500;
 
+    
   public TicTacToe()
   {
     setTitle("TicTacToe");
@@ -54,23 +72,62 @@ public class TicTacToe extends JFrame {
     seven.addActionListener(new seven());
     eight.addActionListener(new eight());
     
-    panel = new JPanel();
-    panel.add(messageLabel);
-    panel.add(zero);
-    panel.add(one);
-    panel.add(two);
-    panel.add(three);
-    panel.add(four);
-    panel.add(five);
-    panel.add(six);
-    panel.add(seven);
-    panel.add(eight);
-    add(panel);
+    buildNamePanel();
+    buildBoard();
+    buildBottomPanel();
+    add(panel, BorderLayout.CENTER);
+    add(namePanel, BorderLayout.NORTH);
+    add(bottomButtonPanel, BorderLayout.SOUTH);
+    //pack();
     setVisible(true);
 
   }
-
-
+  
+  public void buildBoard()
+  {
+      panel = new JPanel();
+      panel.setLayout(new GridLayout(3,3));
+      panel.add(zero);
+      panel.add(one);
+      panel.add(two);
+      panel.add(three);
+      panel.add(four);
+      panel.add(five);
+      panel.add(six);
+      panel.add(seven);
+      panel.add(eight);
+  }
+  
+  public void buildNamePanel()
+  {
+      namePanel = new JPanel();
+      namePanel.setLayout(new GridLayout(3,3));
+      JLabel player1Label = new JLabel("Player 1 name:");
+      JLabel player2Label = new JLabel("Player 2 name:");
+      namePanel = new JPanel();
+      nameTextField = new JTextField(10);
+      nameTextField2 = new JTextField(10);
+      JLabel player1WinsLabel = new JLabel("\nWins " + String.valueOf(player1Wins));
+      JLabel player2WinsLabel = new JLabel("\nWins " + String.valueOf(player2Wins));
+      namePanel.add(player1Label, BorderLayout.WEST);
+      namePanel.add(nameTextField, BorderLayout.WEST);
+      namePanel.add(player1WinsLabel, BorderLayout.WEST);
+      namePanel.add(player2Label, BorderLayout.EAST);
+      namePanel.add(nameTextField2, BorderLayout.EAST);
+      namePanel.add(player2WinsLabel, BorderLayout.WEST);
+  }
+  public void buildBottomPanel()
+  {
+      bottomButtonPanel = new JPanel();
+      newGame = new JButton("New Game");
+      reset = new JButton("Reset");
+      exit = new JButton("Exit");      
+    
+      bottomButtonPanel.add(newGame);
+      bottomButtonPanel.add(reset);
+      bottomButtonPanel.add(exit);
+  }
+  
     private class zero implements ActionListener {
             public void actionPerformed(ActionEvent e) {
 			if (player1 == true) {
@@ -78,11 +135,11 @@ public class TicTacToe extends JFrame {
                                 zero.setText("X");
 				player1 = false;
                                 chosen = true;
-                                System.out.println("Test 2");
 			} else if (chosen == false){
 				board[0] = "O";
                                 zero.setText("O");
 				player1 = true;
+                                
 			}
 		}
 	}
@@ -93,10 +150,12 @@ public class TicTacToe extends JFrame {
 				board[1] = "X";
 				one.setText("X");
 				player1 = false;
+                                //chosen = true;
 			} else {
 				board[1] = "O";
 				one.setText("O");
 				player1 = true;
+                                chosen = false;
 			}
 		}
 	}
@@ -107,10 +166,12 @@ public class TicTacToe extends JFrame {
 				board[2] = "X";
 				two.setText("X");
 				player1 = false;
+                                chosen = true;
 			} else {
 				board[2] = "O";
 				two.setText("O");
 				player1 = true;
+                                chosen = false;
 			}
 		}
 	}
@@ -121,10 +182,12 @@ public class TicTacToe extends JFrame {
 				board[3] = "X";
 				three.setText("X");
 				player1 = false;
+                                chosen = true;
 			} else {
 				board[3] = "O";
 				three.setText("O");
 				player1 = true;
+                                chosen = false;
 			}
 		}
 	}
@@ -135,10 +198,12 @@ public class TicTacToe extends JFrame {
 				board[4] = "X";
 				four.setText("X");
 				player1 = false;
+                                chosen = true;
 			} else {
 				board[4] = "O";
 				four.setText("O");
 				player1 = true;
+                                chosen = false;
 			}
 		}
 	}
@@ -149,10 +214,12 @@ public class TicTacToe extends JFrame {
 				board[5] = "X";
 				five.setText("X");
 				player1 = false;
+                                chosen = true;
 			} else {
 				board[5] = "O";
 				five.setText("O");
 				player1 = true;
+                                chosen = false;
 			}
 		}
 	}
@@ -163,10 +230,12 @@ public class TicTacToe extends JFrame {
 				board[6] = "X";
 				six.setText("X");
 				player1 = false;
+                                chosen = true;
 			} else {
 				board[6] = "O";
 				six.setText("O");
 				player1 = true;
+                                chosen = false;
 			}
 		}
 	}
@@ -177,10 +246,12 @@ public class TicTacToe extends JFrame {
 				board[7] = "X";
 				seven.setText("X");
 				player1 = false;
+                                chosen = true;
 			} else {
 				board[7] = "O";
 				seven.setText("O");
 				player1 = true;
+                                chosen = false;
 			}
 		}
 	}
@@ -191,10 +262,12 @@ public class TicTacToe extends JFrame {
 				board[8] = "X";
 				eight.setText("X");
 				player1 = false;
+                                chosen = true;
 			} else {
 				board[8] = "O";
 				eight.setText("O");
 				player1 = true;
+                                chosen = false;
 			}
 		}
 	}
@@ -258,6 +331,6 @@ public class TicTacToe extends JFrame {
 		//testing
 		boolean gameOver = false;
                 new TicTacToe();
-                checksBoard(board, gameOver);
+                //checksBoard(board, gameOver);
 }
 }
