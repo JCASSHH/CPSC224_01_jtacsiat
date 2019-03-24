@@ -51,10 +51,15 @@ class MotionPanel extends JPanel implements ActionListener
    private int dx = 2;		// increment amount (x coord)
    private int dy = 2;		// increment amount (y coord)
    
-   private int oceanX =150;
-   private int oceanY = 150;    
+   private int oceanX =0;
+   private int oceanY = 200;    
    private int oceanWidth;
    private int oceanHeight;
+   
+   private int sunX = 110;
+   private int sunY = 110;
+   private int sunWidth;
+   private int sunHeight;
    
    public MotionPanel()
    {
@@ -71,13 +76,29 @@ class MotionPanel extends JPanel implements ActionListener
    }
 
    // draw rectangles and arcs
-   public void paintComponent( Graphics g )
+   public void paintComponent ( Graphics g )
    {
-        super.paintComponent( g ); // call superclass's paintComponent 
-        oceanWidth = 30;
-        oceanHeight = 40;
-        g.setColor(Color.blue);
-        g.fillRect(oceanX, oceanY, oceanWidth, oceanHeight);
+       super.paintComponent( g ); // call superclass's paintComponent 
+       oceanWidth = 30;
+       oceanHeight = 40;
+       g.setColor(Color.blue);
+       g.fillRect(oceanX, oceanY, oceanWidth, oceanHeight);
+       //paintSun(g);
+       //super.paintComponent(g);
+       g.setColor(Color.ORANGE);
+       sunWidth = 100;
+       sunHeight = 100;
+       g.fillOval(sunX, sunY, sunWidth, sunHeight);
+   }
+   
+   public void paintSun (Graphics g)
+   {
+       super.paintComponent(g);
+       g.setColor(Color.ORANGE);
+       sunWidth = 100;
+       sunHeight = 100;
+       g.fillOval(sunX, sunY, sunWidth, sunHeight);
+       
    }
    
  
@@ -101,6 +122,7 @@ class MotionPanel extends JPanel implements ActionListener
 
       public void mouseEntered(MouseEvent e)
       {
+          
       }
 
       public void mouseExited(MouseEvent e)
@@ -116,10 +138,12 @@ class MotionPanel extends JPanel implements ActionListener
        public void mouseMoved(MouseEvent e){
            int mouseX = e.getX();
            int mouseY = e.getY();
-           oceanX = mouseX/2;
-           oceanY = mouseY/2;
+           oceanX = (mouseX + 5);
+           oceanY = (mouseY + 5);
            //System.out.println(oceanX);
-           mouseX += oceanX;
+           //mouseX += oceanX;
+           sunX = 150 + (mouseX - 75)/12;
+           sunY = 150 + (mouseY - 75)/12;
 
        }
 
