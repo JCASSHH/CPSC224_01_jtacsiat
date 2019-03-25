@@ -60,27 +60,56 @@ class MotionPanel extends JPanel implements ActionListener {
 	private int birdWidth;
 	private int birdHeight;
 	
-	private int stumpX = 0;
-	private int stumpY = 75;
-	private int stumpWidth;
-	private int stumpHeight;
+	private int stump1X = 0;
+	private int stump1Y = 75;
+	private int stump1Width;
+	private int stump1Height;
 	
-	private int leavesX = 0;
-	private int leavesY = 0;
-	private int leavesWidth;
-	private int leavesHeight;
+	private int leaves1X = 0;
+	private int leaves1Y = 0;
+	private int leaves1Width;
+	private int leaves1Height;
 	
-	/*
-	private int[] Mountain1X = {20};
-	private int[] Mountain1Y = {25};
-	private int Mountain1Width;
-	private int Mountain1Height; 
+	private int stump2X = 0;
+	private int stump2Y = 75;
+	private int stump2Width;
+	private int stump2Height;
 	
-	private int Mountain2X = 0;
-	private int Mountain2Y = 100;
-	private int Mountain2Width;
-	private int Mountain2Height; 
-*/
+	private int leaves2X = 0;
+	private int leaves2Y = 0;
+	private int leaves2Width;
+	private int leaves2Height;
+	
+	private int stump3X = 0;
+	private int stump3Y = 75;
+	private int stump3Width;
+	private int stump3Height;
+	
+	private int leaves3X = 0;
+	private int leaves3Y = 0;
+	private int leaves3Width;
+	private int leaves3Height;
+	
+	private int cloud1X = 0;
+	private int cloud1Y = 0;
+	private int cloud1Width;
+	private int cloud1Height;
+	
+	private int cloud2X = 0;
+	private int cloud2Y = 0;
+	private int cloud2Width;
+	private int cloud2Height;
+	
+	private int cloud3X = 0;
+	private int cloud3Y = 0;
+	private int cloud3Width;
+	private int cloud3Height;
+	
+	private int clou41X = 0;
+	private int cloud4Y = 0;
+	private int cloud4Width;
+	private int cloud4Height;
+	
 	
 	public MotionPanel() {
 		timer = new Timer(delay, this);
@@ -127,26 +156,34 @@ class MotionPanel extends JPanel implements ActionListener {
 		g.fillOval(birdX, birdY, birdWidth, birdHeight);
 		
 		g.setColor(Color.DARK_GRAY);
-		stumpWidth = 15;
-		stumpHeight = 30;
-		g.fillRect(stumpX, stumpY, stumpWidth, stumpHeight);
+		stump1Width = 15;
+		stump1Height = 30;
+		g.fillRect(stump1X, stump1Y, stump1Width, stump1Height);
 		
-		//g.setColor(Color.green);
+		g.setColor(Color.green);
+		leaves1Width = 35;
+		leaves1Height = 45;
+		g.fillOval(leaves1X, leaves1Y, leaves1Width,leaves1Height);
 		
+		g.setColor(Color.DARK_GRAY);
+		stump2Width = 15;
+		stump2Height = 30;
+		g.fillRect(stump2X, stump2Y, stump2Width, stump2Height);
 		
+		g.setColor(Color.green);
+		leaves2Width = 35;
+		leaves2Height = 45;
+		g.fillOval(leaves2X, leaves2Y, leaves2Width,leaves2Height);
 		
+		g.setColor(Color.DARK_GRAY);
+		stump3Width = 15;
+		stump3Height = 30;
+		g.fillRect(stump3X, stump3Y, stump3Width, stump3Height);
 		
-		/*	g.setColor(Color.GRAY);
-		Mountain1Width = 100;
-		Mountain1Height = 150;
-		g.fillPolygon(Mountain1X, Mountain1Y, 200);
-*/
-		//g.fillPolygon(Mountain1X,  Mountain1Y,  Mountain1Width);
-		/*
-		g.setColor(Color.GRAY);
-		Mountain2Width = 100;
-		Mountain2Height = 200;
-		g.fillRect(Mountain2X,  Mountain2Y,  Mountain2Width, Mountain2Height);*/
+		g.setColor(Color.green);
+		leaves3Width = 35;
+		leaves3Height = 45;
+		g.fillOval(leaves3X, leaves3Y, leaves3Width,leaves3Height);
 	
 	}
 
@@ -166,14 +203,11 @@ class MotionPanel extends JPanel implements ActionListener {
 			System.out.println(e.getX());
 			System.out.println(e.getY());
 			
-			
 			int mouseX = e.getX();
 			int mouseY = e.getY();
-		
 			
 			birdX = mouseX;
 			birdY = mouseY;
-		
 
 		}
 
@@ -200,19 +234,31 @@ class MotionPanel extends JPanel implements ActionListener {
 			
 			oceanX = (mouseX + 5);
 			oceanY = (mouseY + 5);
-			// System.out.println(oceanX);
-			// mouseX += oceanX;
+			
 			sunX = 190 + (mouseX - 75) / 12;
 			sunY = 10 + (mouseY - 75) / 12;
 			
 			grassX = (mouseX - 300) / 12;
 			grassY = 200 + (mouseY) / 12;
 			
-			stumpX = 30 + (mouseX - 300) / 12;
-			stumpY = 190 + (mouseY) / 12;
+			stump1X = 30 + (mouseX - 300) / 12;
+			stump1Y = 190 + (mouseY) / 12;
+			
+			leaves1X = 20 + (mouseX - 300) / 12;
+			leaves1Y = 150 + (mouseY) / 12;
+			
+			stump2X = 70 + (mouseX - 300) / 12;
+			stump2Y = 200 + (mouseY) / 12;
+			
+			leaves2X = 60 + (mouseX - 300) / 12;
+			leaves2Y = 160 + (mouseY) / 12;
+			
+			stump3X = 107 + (mouseX - 300) / 12;
+			stump3Y = 197 + (mouseY) / 12;
+			
+			leaves3X = 97 + (mouseX - 300) / 12;
+			leaves3Y = 157 + (mouseY) / 12;
+			
 		}
-		
-
 	}
-
 }
