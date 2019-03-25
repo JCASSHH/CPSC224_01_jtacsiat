@@ -105,10 +105,17 @@ class MotionPanel extends JPanel implements ActionListener {
 	private int cloud3Width;
 	private int cloud3Height;
 	
-	private int clou41X = 0;
+	private int cloud4X = 0;
 	private int cloud4Y = 0;
 	private int cloud4Width;
 	private int cloud4Height;
+	
+	private int cloud5X = 0;
+	private int cloud5Y = 0;
+	private int cloud5Width;
+	private int cloud5Height;
+	
+	
 	
 	
 	public MotionPanel() {
@@ -184,6 +191,31 @@ class MotionPanel extends JPanel implements ActionListener {
 		leaves3Width = 35;
 		leaves3Height = 45;
 		g.fillOval(leaves3X, leaves3Y, leaves3Width,leaves3Height);
+		
+		g.setColor(Color.white);
+		cloud1Width = 25;
+		cloud1Height = 25;
+		g.fillOval(cloud1X, cloud1Y, cloud1Width, cloud1Height);
+		
+		g.setColor(Color.white);
+		cloud2Width = 25;
+		cloud2Height = 25;
+		g.fillOval(cloud2X, cloud2Y, cloud2Width, cloud2Height);
+		
+		g.setColor(Color.white);
+		cloud3Width = 25;
+		cloud3Height = 25;
+		g.fillOval(cloud3X, cloud3Y, cloud3Width, cloud3Height);
+		
+		g.setColor(Color.white);
+		cloud4Width = 25;
+		cloud4Height = 25;
+		g.fillOval(cloud4X, cloud4Y, cloud4Width, cloud4Height);
+		
+		g.setColor(Color.white);
+		cloud5Width = 25;
+		cloud5Height = 25;
+		g.fillOval(cloud5X, cloud5Y, cloud5Width, cloud5Height);
 	
 	}
 
@@ -258,6 +290,21 @@ class MotionPanel extends JPanel implements ActionListener {
 			
 			leaves3X = 97 + (mouseX - 300) / 12;
 			leaves3Y = 157 + (mouseY) / 12;
+			
+			cloud1X = 97 + (mouseX - 300) / 12;
+			cloud1Y = 10 + (mouseY) / 12;
+			
+			cloud2X = 107 + (mouseX - 300) / 12;
+			cloud2Y = 15 + (mouseY) / 12;
+			
+			cloud3X = 94 + (mouseX - 300) / 12;
+			cloud3Y = 25 + (mouseY) / 12;
+			
+			cloud4X = 87 + (mouseX - 300) / 12;
+			cloud4Y = 15 + (mouseY) / 12;
+			
+			cloud5X = 110 + (mouseX - 300) / 12;
+			cloud5Y = 25 + (mouseY) / 12;
 			
 		}
 	}
