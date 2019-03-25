@@ -10,6 +10,9 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
+
+//Color randomColor = new (color); 
+
 public class MotionParallax {
 	// execute application
 	public static void main(String args[]) {
@@ -39,11 +42,6 @@ class MotionPanel extends JPanel implements ActionListener {
 	private int skyY = 2000;
 	private int skyWidth;
 	private int skyHeight;
-	
-	private int oceanX = 0;
-	private int oceanY = 200;
-	private int oceanWidth;
-	private int oceanHeight;
 	
 	private int sunX = 110;
 	private int sunY = 250;
@@ -115,7 +113,6 @@ class MotionPanel extends JPanel implements ActionListener {
 	private int cloud5Width;
 	private int cloud5Height;
 	
-	
 	private int cloud1AX = 0;
 	private int cloud1AY = 0;
 	private int cloud1AWidth;
@@ -141,8 +138,15 @@ class MotionPanel extends JPanel implements ActionListener {
 	private int cloud5AWidth;
 	private int cloud5AHeight;
 	
+	private int	apple1X = 0;
+	private int apple1Y = 0;
+	private int apple1Width;
+	private int apple1Height;
 	
-	
+	private int	apple1AX = 0;
+	private int apple1AY = 0;
+	private int apple1AWidth;
+	private int apple1AHeight;	
 	
 	public MotionPanel() {
 		timer = new Timer(delay, this);
@@ -165,11 +169,6 @@ class MotionPanel extends JPanel implements ActionListener {
 		skyHeight = 1000;
 		g.setColor(Color.cyan);
 		g.fillRect(skyX, skyY, skyWidth, skyHeight);
-		
-		oceanWidth = 30;
-		oceanHeight = 40;
-		g.setColor(Color.blue);
-		g.fillRect(oceanX, oceanY, oceanWidth, oceanHeight);
 		
 		// paintSun(g);
 		// super.paintComponent(g);
@@ -267,6 +266,16 @@ class MotionPanel extends JPanel implements ActionListener {
 		cloud5AWidth = 25;
 		cloud5AHeight = 25;
 		g.fillOval(cloud5AX, cloud5AY, cloud5AWidth, cloud5AHeight);
+		
+		g.setColor(Color.red);
+		apple1Width = 5;
+		apple1Height = 5;
+		g.fillOval(apple1X, apple1Y, apple1Width, apple1Height);
+		
+		g.setColor(Color.red);
+		apple1AWidth = 5;
+		apple1AHeight = 5;
+		g.fillOval(apple1AX, apple1AY, apple1AWidth, apple1AHeight);
 	
 	}
 
@@ -291,16 +300,47 @@ class MotionPanel extends JPanel implements ActionListener {
 			
 			birdX = mouseX;
 			birdY = mouseY;
-
 		}
 
 		public void mouseReleased(MouseEvent e) {
 		}
 
 		public void mouseEntered(MouseEvent e) {
+			apple1X = 300;
+			apple1Y = 300;
 		}
 
 		public void mouseExited(MouseEvent e) {
+			cloud1X = 350;
+			cloud1Y = 350;
+			
+			cloud2X = 350;
+			cloud2Y = 350;
+			
+			cloud3X = 350;
+			cloud3Y = 350;
+			
+			cloud4X = 350;
+			cloud4Y = 350;
+			
+			cloud5X = 350;
+			cloud5Y = 350;
+			
+			cloud1AX = 350;
+			cloud1AY = 350;
+			
+			cloud2AX = 350;
+			cloud2AY = 350;
+			
+			cloud3AX = 350;
+			cloud3AY = 350;
+			
+			cloud4AX = 350;
+			cloud4AY = 350;
+			
+			cloud5AX = 350;
+			cloud5AY = 350;
+			
 		}
 	}
 
@@ -313,10 +353,7 @@ class MotionPanel extends JPanel implements ActionListener {
 			int mouseY = e.getY();
 			
 			skyX = mouseX - 300;
-			skyY = mouseY - 300;;
-			
-			oceanX = (mouseX + 5);
-			oceanY = (mouseY + 5);
+			skyY = mouseY - 300;
 			
 			sunX = 190 + (mouseX - 75) / 12;
 			sunY = 10 + (mouseY - 75) / 12;
@@ -370,9 +407,13 @@ class MotionPanel extends JPanel implements ActionListener {
 			cloud4AY = 45 + (mouseY) / 12;
 			
 			cloud5AX = 60 + (mouseX - 300) / 12;
-			cloud5AY = 35 + (mouseY) / 12;
+			cloud5AY = 35 + (mouseY) / 12;	
 			
+			apple1X = 25 + (mouseX - 300) / 12;
+			apple1Y = 160 + (mouseY) / 12;
 			
+			apple1AX = 47 + (mouseX - 300) / 12;
+			apple1AY = 170 + (mouseY) / 12;
 		}
 	}
 }
