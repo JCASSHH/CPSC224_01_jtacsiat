@@ -116,6 +116,32 @@ class MotionPanel extends JPanel implements ActionListener {
 	private int cloud5Height;
 	
 	
+	private int cloud1AX = 0;
+	private int cloud1AY = 0;
+	private int cloud1AWidth;
+	private int cloud1AHeight;
+	
+	private int cloud2AX = 0;
+	private int cloud2AY = 0;
+	private int cloud2AWidth;
+	private int cloud2AHeight;
+	
+	private int cloud3AX = 0;
+	private int cloud3AY = 0;
+	private int cloud3AWidth;
+	private int cloud3AHeight;
+	
+	private int cloud4AX = 0;
+	private int cloud4AY = 0;
+	private int cloud4AWidth;
+	private int cloud4AHeight;
+	
+	private int cloud5AX = 0;
+	private int cloud5AY = 0;
+	private int cloud5AWidth;
+	private int cloud5AHeight;
+	
+	
 	
 	
 	public MotionPanel() {
@@ -216,6 +242,31 @@ class MotionPanel extends JPanel implements ActionListener {
 		cloud5Width = 25;
 		cloud5Height = 25;
 		g.fillOval(cloud5X, cloud5Y, cloud5Width, cloud5Height);
+		
+		g.setColor(Color.white);
+		cloud1AWidth = 25;
+		cloud1AHeight = 25;
+		g.fillOval(cloud1AX, cloud1AY, cloud1AWidth, cloud1AHeight);
+		
+		g.setColor(Color.white);
+		cloud2AWidth = 25;
+		cloud2AHeight = 25;
+		g.fillOval(cloud2AX, cloud2AY, cloud2AWidth, cloud2AHeight);
+		
+		g.setColor(Color.white);
+		cloud3AWidth = 25;
+		cloud3AHeight = 25;
+		g.fillOval(cloud3AX, cloud3AY, cloud3AWidth, cloud3AHeight);
+		
+		g.setColor(Color.white);
+		cloud4AWidth = 25;
+		cloud4AHeight = 25;
+		g.fillOval(cloud4AX, cloud4AY, cloud4AWidth, cloud4AHeight);
+		
+		g.setColor(Color.white);
+		cloud5AWidth = 25;
+		cloud5AHeight = 25;
+		g.fillOval(cloud5AX, cloud5AY, cloud5AWidth, cloud5AHeight);
 	
 	}
 
@@ -305,6 +356,22 @@ class MotionPanel extends JPanel implements ActionListener {
 			
 			cloud5X = 110 + (mouseX - 300) / 12;
 			cloud5Y = 25 + (mouseY) / 12;
+			
+			cloud1AX = 47 + (mouseX - 300) / 12;
+			cloud1AY = 30 + (mouseY) / 12;
+			
+			cloud2AX = 47 + (mouseX - 300) / 12;
+			cloud2AY = 35 + (mouseY) / 12;
+			
+			cloud3AX = 60 + (mouseX - 300) / 12;
+			cloud3AY = 50 + (mouseY) / 12;
+			
+			cloud4AX = 40 + (mouseX - 300) / 12;
+			cloud4AY = 45 + (mouseY) / 12;
+			
+			cloud5AX = 60 + (mouseX - 300) / 12;
+			cloud5AY = 35 + (mouseY) / 12;
+			
 			
 		}
 	}
