@@ -42,13 +42,7 @@ public class MotionPanel extends JPanel implements ActionListener, KeyListener {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        //g.setColor(Color.GREEN);
-        //g.fillRect(testFrog.getXCor(), testFrog.getYCor(),testFrog.getLength(), testFrog.getWidth());
         testFrog.paint(g);
-        //testFrog.moveDown();
-        //testFrog.moveRight();
-        //repaint();
-        //System.out.println("After paint component");
     }
     
     @Override

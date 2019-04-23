@@ -33,6 +33,7 @@ public class frog {
         return width;
     }
     public void paint(Graphics g){
+        g.setColor(Color.GREEN);
         g.fillRect(xcor, ycor, width, length); 
     }
     public void moveLeft(){
@@ -40,10 +41,8 @@ public class frog {
         System.out.println("x: " + xcor + " y: " + ycor);
     }
     public void moveRight(){
-        do{
         xcor +=10;
         System.out.println("x: " + xcor + " y: " + ycor);
-        }while (xcor <500);
     }
     public void moveUp(){
         ycor -=10;
