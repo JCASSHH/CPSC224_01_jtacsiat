@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -38,19 +39,19 @@ public class frog {
     }
     public void moveLeft(){
         xcor -=10;
-        System.out.println("x: " + xcor + " y: " + ycor);
+        //System.out.println("x: " + xcor + " y: " + ycor);
     }
     public void moveRight(){
         xcor +=10;
-        System.out.println("x: " + xcor + " y: " + ycor);
+        //System.out.println("x: " + xcor + " y: " + ycor);
     }
     public void moveUp(){
         ycor -=10;
-        System.out.println("x: " + xcor + " y: " + ycor);
+        //System.out.println("x: " + xcor + " y: " + ycor);
     }
     public void moveDown(){
         ycor +=10;
-        System.out.println("x: " + xcor + " y: " + ycor);
+       //System.out.println("x: " + xcor + " y: " + ycor);
     }
 }
 

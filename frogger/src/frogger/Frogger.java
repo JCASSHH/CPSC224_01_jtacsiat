@@ -7,6 +7,7 @@ package frogger;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,11 +17,11 @@ public class Frogger {
     
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Frogger");
+        JFrame frame = new JFrame("Spike Madness!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MotionPanel gamePanel = new MotionPanel();
         frame.add(gamePanel);
-        frame.setSize(500,500);
+        frame.setSize(800,800);
         frame.setVisible(true);
     }
 }
