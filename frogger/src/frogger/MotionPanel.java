@@ -29,9 +29,20 @@ public class MotionPanel extends JPanel implements ActionListener, KeyListener  
     private int delay = 10;
     private int gameTime;
     protected Timer timer;
-    private int obstacleX = 10;
-    private int obstacleY = 10;
-   
+    //private boolean spikeWins = false;
+    private int dukedx = 10;
+    private int dukedy = 10;
+    private int auburndx = 10;
+    private int auburndy = 10;
+    private int kentuckydx = 10;
+    private int kentuckydy = 10;
+    private int michigandx = 10;
+    private int michigandy = 10;
+    private int texasdx = 10;
+    private int texasdy = 10;
+    private int virginiadx = 10;
+    private int virginiady = 10;
+    
     ImageIcon spike = new ImageIcon("Spike.png");
     ImageIcon auburn = new ImageIcon("auburn.png");
     ImageIcon duke = new ImageIcon("duke.png");
@@ -39,6 +50,7 @@ public class MotionPanel extends JPanel implements ActionListener, KeyListener  
     ImageIcon michigan = new ImageIcon("michiganState.png");
     ImageIcon texas = new ImageIcon("texasTech.png");
     ImageIcon virginia = new ImageIcon("virginia.png");
+    ImageIcon trophy = new ImageIcon("trophypicture.jpg");
            
     int spikeX = 350;
     int spikeY = 600;
@@ -54,18 +66,15 @@ public class MotionPanel extends JPanel implements ActionListener, KeyListener  
     int texasY = 450;
     int virginiaX = 680;
     int virginiaY = 450;
+    int trophyX = 400;
+    int trophyY = 0;
     
-
     public MotionPanel(){
-        
     timer = new Timer(delay,this);
     timer.start();
     this.addKeyListener(this);
     this.setFocusable(true);
     this.setSize(800, 800);
-    //this.setLayout(new BorderLayout(6,6));
-    
-    
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -76,13 +85,35 @@ public class MotionPanel extends JPanel implements ActionListener, KeyListener  
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        
+        if(dukeX < 0)  dukedx = Math.abs(dukedx);
+        if(dukeX > getWidth()-80) dukedx = -Math.abs(dukedx);
+        if(auburnX < 0)  auburndx = Math.abs(auburndx);
+        if(auburnX > getWidth()-80) auburndx = -Math.abs(auburndx);
+        if(kentuckyX < 0)  kentuckydx = Math.abs(kentuckydx);
+        if(kentuckyX > getWidth()-80) kentuckydx = -Math.abs(kentuckydx);
+        if(michiganX < 0)  michigandx = Math.abs(michigandx);
+        if(michiganX > getWidth()-80) michigandx = -Math.abs(michigandx);
+        if(texasX < 0)  texasdx = Math.abs(texasdx);
+        if(texasX > getWidth()-80) texasdx = -Math.abs(texasdx);
+        if(virginiaX < 0)  virginiadx = Math.abs(virginiadx);
+        if(virginiaX > getWidth()-80) virginiadx = -Math.abs(virginiadx);
+        
+        dukeX += dukedx;
+        auburnX += auburndx;
+        kentuckyX += kentuckydx;
+        michiganX += michigandx;
+        texasX += texasdx;
+        virginiaX += virginiadx;
+        
         spike.paintIcon(this, g, spikeX, spikeY);
         duke.paintIcon(this, g, dukeX, dukeY);
         auburn.paintIcon(this, g ,auburnX, auburnY);
-        kentucky.paintIcon(this, g, kentuckyX, kentuckyY);
+        kentucky.paintIcon(this, g, kentuckyX , kentuckyY );
         michigan.paintIcon(this, g, michiganX, michiganY);
         texas.paintIcon(this, g, texasX, texasY);
-        virginia.paintIcon(this, g, virginiaX, virginiaY);   
+        virginia.paintIcon(this, g, virginiaX, virginiaY);
+        trophy.paintIcon(this, g, trophyX, trophyY);
         //repaint();
     }
     
@@ -92,15 +123,22 @@ public class MotionPanel extends JPanel implements ActionListener, KeyListener  
     @Override 
     public void keyPressed(KeyEvent e){
         if(SpikeDied()==true){
-            //spikeLabel.setVisible(false);
-            spikeX = 500;
-            spikeY = 500;
+            spikeX = 400;
+            spikeY = 600;
+            repaint();
+        }
+        if(spikeWins()==true){
+            System.out.println("W");
+            spikeX = 400;
+            spikeY = 600;
+            System.out.println("spike x: " + spikeX + "spike y: " + spikeY);
+            System.out.println("Trophy coordinates: " + trophyX + ", " + trophyY);
             repaint();
         }
         switch (e.getKeyCode()){
             case KeyEvent.VK_RIGHT:
                 spikeX += 10;
-                System.out.println("spikeX " + spikeX);
+                //System.out.println("spikeX " + spikeX);
                 repaint();
                 break;
             case KeyEvent.VK_LEFT:
@@ -166,5 +204,14 @@ public class MotionPanel extends JPanel implements ActionListener, KeyListener  
 		
        return false;
     }
-    
+    public boolean spikeWins(){
+        if (spikeX == trophyX){
+            if (spikeY ==trophyY){
+                return true;
+            }
+        }
+        return false;
+    }
 }
+    
+

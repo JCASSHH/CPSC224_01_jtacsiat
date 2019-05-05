@@ -1,3 +1,5 @@
+package frogger;
+
 import java.awt.*;
 import javax.swing.*; // Needed for Swing classes
 import java.awt.event.*; // Needed for event listener interface
